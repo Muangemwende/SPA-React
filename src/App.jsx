@@ -1,9 +1,8 @@
-
-
 import { useState } from "react";
 import ProjectList from "./components/ProjectList";
 import ProjectForm from "./components/ProjectForm";
 import SearchBar from "./components/SearchBar";
+import "./App.css";
 
 function App() {
   const [projects, setProjects] = useState([]);
@@ -13,7 +12,7 @@ function App() {
     setProjects([...projects, newProject]);
   }
 
-  const filteredProjects = projects.filter(project =>
+  const filteredProjects = projects.filter(project => 
     project.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 

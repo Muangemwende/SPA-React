@@ -1,0 +1,18 @@
+function ProjectList({ projects }) {
+  return (
+    <div>
+      {projects.length === 0 ? (
+        <p>No projects found.</p>
+      ) : (
+        projects.map((project) => (
+          <div key={project.id} className="project-card">
+            <h3>{project.title}</h3>
+            <p>{project.description}</p>
+          </div>
+        ))
+      )}
+    </div>
+  );
+}
+
+export default ProjectList;

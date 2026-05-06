@@ -6,22 +6,30 @@ function ProjectForm({ addProject }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    addProject({ title, description });
-    setTitle("");
-    setDescription("");
+    if (title.trim()) {
+      addProject({
+        id: Date.now(),
+        title: title,
+        description: description,
+      });
+      setTitle("");
+      setDescription("");
+    }
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <input
+        type="text"
+        placeholder="Project title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        placeholder="Project Title"
+        required
       />
       <textarea
+        placeholder="Project description"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-        placeholder="Description"
       />
       <button type="submit">Add Project</button>
     </form>
